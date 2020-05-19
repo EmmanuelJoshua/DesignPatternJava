@@ -15,7 +15,7 @@ public class YoutubeData implements Subject {
 
     //an arraylist holding the observers/subscribers
     ArrayList<Observer> observers;
-    
+
     //local string to hold new video name
     String newvideo;
 
@@ -43,11 +43,9 @@ public class YoutubeData implements Subject {
     @Override
     public void notifySubscriber() {
         //iterate through observers arraylist
-        for (int i = 0; i < observers.size(); i++) {
-            //update observers with new video
-            Observer observer = (Observer) observers.get(i);
-            observer.update(newvideo);
-        }
+        observers.forEach((observer2) -> {
+            observer2.update(newvideo);
+        });
     }
 
     public void newVideoAlert() {
